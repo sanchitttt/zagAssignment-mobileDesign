@@ -1,4 +1,5 @@
 import { LikeIcon } from "../icons"
+import { useNavigate } from "react-router-dom"
 
 export interface ProductCardProps {
     image: string,
@@ -8,8 +9,11 @@ export interface ProductCardProps {
 }
 
 function ProductCard({ image, name, description, price }: ProductCardProps) {
+    const navigate = useNavigate();
     return (
-        <div className='relative' aria-describedby="button" >
+        <div className='relative' aria-describedby="button"
+            onClick={() => navigate("/product")}
+        >
             <div className='absolute top-[15px] right-[15px]'>
                 <LikeIcon />
             </div>
