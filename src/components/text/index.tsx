@@ -23,3 +23,11 @@ export function SubHeading({ children, color = '#666', fontSize = '20px', bold =
         {children}
     </h1>
 }
+
+export function PaymentText({ children }: { children: React.ReactNode }) {
+    return (
+        <div className='font-secondary font-medium text-[16px]'>
+            {children}
+        </div>
+    )
+}

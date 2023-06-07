@@ -2,6 +2,7 @@ import ProductImages from "../components/productDetails/ProductImages";
 import { Rating } from '@mui/material';
 import { useState } from 'react';
 import { BasketIcon } from "../icons";
+import { useNavigate } from "react-router-dom";
 
 
 interface ProductDetailsInterface {
@@ -33,7 +34,7 @@ function BuyButton({ children }: { children: React.ReactNode }) {
 function ProductDetails({ name = 'Roller Rabbit', description = 'Vado Odelle Dress', rating = 5, totalReviews = 320, inStock = true, price = 198.00 }: ProductDetailsInterface) {
     const [sizeSelected, setSizeSelected] = useState<ValidSizes>('L')
     const [quantity, setQuantity] = useState(1);
-
+    const navigate = useNavigate();
     return (
         <div className='w-[100vw] h-[100vh] relative'>
             <ProductImages />
@@ -84,7 +85,9 @@ function ProductDetails({ name = 'Roller Rabbit', description = 'Vado Odelle Dre
                                 <div className='text-[9px] font-main text-[#AAA] font-normal'>Total Price</div>
                                 <div className='font-semibold font-main text-[18px]'>${quantity * price}</div>
                             </div>
-                            <div className='flex flex-col'>
+                            <div className='flex flex-col'
+                                onClick={() => navigate('/payment')}
+                            >
                                 <BuyButton>Buy Now</BuyButton>
                             </div>
                         </div>

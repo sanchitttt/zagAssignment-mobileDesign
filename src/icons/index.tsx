@@ -97,7 +97,7 @@ export function BasketIcon({ color = 'black' }: { color?: 'black' | 'white' }) {
         <circle cx="15" cy="15" r="15" fill={color === 'black' ? 'white' : 'none'} />
         <path fillRule="evenodd" clipRule="evenodd" d="M17.9354 20.9995H12.2899C10.2162 20.9995 8.62535 20.2505 9.07723 17.2359L9.60339 13.1504C9.88195 11.6461 10.8414 11.0705 11.6833 11.0705H18.5668C19.421 11.0705 20.3248 11.6895 20.6467 13.1504L21.1728 17.2359C21.5566 19.9101 20.0091 20.9995 17.9354 20.9995Z" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
         <path d="M18.0283 10.9218C18.0283 9.30815 16.7201 8.00003 15.1065 8.00003C14.3294 7.99674 13.5831 8.30311 13.0325 8.8514C12.4819 9.3997 12.1723 10.1447 12.1723 10.9218" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M17.112 13.9668H17.0811" stroke={color}strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M17.112 13.9668H17.0811" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
         <path d="M13.1691 13.9668H13.1381" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 
@@ -110,4 +110,8 @@ export function LightLikeIcon() {
         <path d="M17.7509 11.6719C18.5238 11.9218 19.0698 12.6116 19.1355 13.4213" stroke="#130F26" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 
+}
+
+export function LockIcon() {
+    return <svg viewBox="0 0 512 512" style={{ width: '20px' }} xmlns="http://www.w3.org/2000/svg" fill="#fff" stroke="#fff"><g /><g /><path d="M256 42.667c70.49 0 128 57.695 128 128V256h42.666v213.334H85.333V256H128v-85.333c0-70.305 57.51-128 128-128Zm0 42.667c-47.331 0-85.334 38.996-85.334 85.333V256h170.667v-85.333c0-46.337-38.003-85.333-85.333-85.333Z" fillRule="evenodd" stroke="none" /></svg>
 }
