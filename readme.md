@@ -1,3 +1,8 @@
+# Preview
+
+![Home Page](https://i.ibb.co/KzLxcxZ/image.png)
+
+![Product Page](https://i.ibb.co/qj6FBdd/image.png)
 
 # How to run the project
 
@@ -19,3 +24,4 @@
     2) React JS
     3) Material UI
     4) React Router Dom
+
