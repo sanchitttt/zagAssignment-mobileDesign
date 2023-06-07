@@ -10,7 +10,7 @@ interface ProductDetailsInterface {
     rating: number,
     totalReviews: number,
     inStock: boolean,
-    price: string | number
+    price: number
 }
 
 type ValidSizes = 'S' | 'M' | 'L' | "XL" | "XXL";
@@ -30,9 +30,9 @@ function BuyButton({ children }: { children: React.ReactNode }) {
     </div>
 }
 
-function ProductDetails({ name = 'Roller Rabbit', description = 'Vado Odelle Dress', rating = 5, totalReviews = 320, inStock = true, price = '198.00' }: ProductDetailsInterface) {
+function ProductDetails({ name = 'Roller Rabbit', description = 'Vado Odelle Dress', rating = 5, totalReviews = 320, inStock = true, price = 198.00 }: ProductDetailsInterface) {
     const [sizeSelected, setSizeSelected] = useState<ValidSizes>('L')
-
+    const [quantity, setQuantity] = useState(1);
 
     return (
         <div className='w-[100vw] h-[100vh] relative'>
@@ -51,7 +51,20 @@ function ProductDetails({ name = 'Roller Rabbit', description = 'Vado Odelle Dre
                             </div>
                         </div>
                         <div className='flex flex-col items-end gap-[5px]'>
-                            <div className='inline p-[5px] px-[20px] bg-[#EEEEEE] rounded-[30px]'>-   1   +</div>
+                            <div className='inline p-[5px] px-[20px] bg-[#EEEEEE] rounded-[30px]'>
+                                <div
+                                    className={`inline mr-[10px]  ${quantity === 1 && 'text-[#888]'}`}
+                                    onClick={() => setQuantity(quantity => quantity - 1 > 0 ? quantity - 1 : quantity)}
+                                >
+                                    -
+                                </div>
+                                {quantity}
+                                <div
+                                    className='inline ml-[10px]'
+                                    onClick={() => setQuantity(quantity => quantity + 1)}
+                                >+
+                                </div>
+                            </div>
                             {inStock && <div className='font-main font-semibold text-[11px]'>Available in stock</div>}
                         </div>
                     </div>
@@ -69,7 +82,7 @@ function ProductDetails({ name = 'Roller Rabbit', description = 'Vado Odelle Dre
                         <div className='flex items-center justify-between'>
                             <div className='flex flex-col'>
                                 <div className='text-[9px] font-main text-[#AAA] font-normal'>Total Price</div>
-                                <div className='font-semibold font-main text-[18px]'>${price}</div>
+                                <div className='font-semibold font-main text-[18px]'>${quantity * price}</div>
                             </div>
                             <div className='flex flex-col'>
                                 <BuyButton>Buy Now</BuyButton>
